@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Teko', sans-serif;
+    --font-title: 'Cinzel', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+
+    /* Dynamic Theme Variables (Default: Cyber Violet / customizable via Palette Menu) */
+    --theme-primary: #a855f7;
+    --theme-primary-light: #c084fc;
+    --theme-primary-dark: #7e22ce;
+    --theme-primary-glow: rgba(168, 85, 247, 0.45);
+    --theme-gradient: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #6366f1 100%);
+    --theme-contrast-text: #ffffff;
+    --theme-bg-canvas: #070717;
+    --theme-bg-surface: #0e0f24;
+    --theme-border: rgba(168, 85, 247, 0.25);
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--theme-bg-canvas);
+    color: #f1f3f7;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease;
+  }
+
+  button, [role="button"] {
+    cursor: pointer;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  .font-title {
+    font-family: var(--font-title);
+  }
+
+  .font-mono-num {
+    font-family: var(--font-code);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Theme Utility Classes */
+.theme-gradient-text {
+  background: var(--theme-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-btn-primary {
+  background: var(--theme-gradient);
+  color: var(--theme-contrast-text);
+  box-shadow: 0 0 25px var(--theme-primary-glow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-btn-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 35px var(--theme-primary-glow);
+  transform: translateY(-1px);
+}
+
+@keyframes carousel-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-carousel-progress {
+  animation: carousel-progress 3.5s linear forwards;
+}
+
+.theme-border-glow {
+  border-color: var(--theme-border);
+  box-shadow: 0 0 20px -5px var(--theme-primary-glow);
+}
+
+/* Custom subtle animation utilities */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.04); }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-120px) rotate(180deg); opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes marqueeTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-hud-ticker {
+  display: flex;
+  width: max-content;
+  animation: marqueeTicker 65s linear infinite;
+}
+
+.animate-hud-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2737;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}

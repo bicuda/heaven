@@ -1,0 +1,6 @@
+{
+  "name": "Aetheria Games Studio",
+  "description": "Hub e estúdio de jogos web idle e MMORPGs clássicos reimaginados para navegadores e mobile, com Ragnarok Idle, Pokémon Idle e MU Online Web.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
